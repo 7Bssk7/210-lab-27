@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <string>
 #include <algorithm>
 using namespace std;
 
@@ -16,6 +17,7 @@ int main() {
         {"Raymond",make_tuple(8,"Cat", "Nice fit")}
     };
 
+    outputDetails(villagerData);
     int menu = mainMenu();
     while(menu != 4){
         if(menu == 1){
@@ -75,6 +77,23 @@ void descreaseFriendship(map<string, tuple<int, string, string>>& data){
 }
 
 void searchVillager(map<string, tuple<int, string, string>>& data){
+    string villager;
+    cout << "What is the name of the villager you are trying to find?"<< endl;
+    cin >> villager; 
+
+    auto it = data.find(villager);
+    if(it != data.end()){
+        cout << "\nFound " << villager << endl;
+        cout << "Friendship Level: " << get<0>(it->second) << endl;
+        cout << "Species: " << get<1>(it->second) << endl;
+        cout << "Catchphrase: " << get<2>(it->second) << endl;
+    }
+    else{
+        cout << villager << " was not founnd" << endl;
+    }
+
+    cout << endl;
+
     
 
 }
