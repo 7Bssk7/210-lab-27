@@ -38,6 +38,7 @@ int mainMenu(){
     cout << "4. Exit" << endl;
     cout << "Choice -> ";
     cin >> choice;
+    cout << endl;
 
     return choice;
 
@@ -47,5 +48,6 @@ void outputDetails(const map<string, tuple<int, string, string>>& data){
     for (const auto& [name,list] : data){
        cout << name << "[" << get<0>(list) << ", " << get<1>(list) << ", " << get<2>(list) << "]" << endl;
     }
+    cout << endl;
 
 }
