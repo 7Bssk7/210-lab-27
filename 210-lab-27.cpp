@@ -5,6 +5,9 @@ using namespace std;
 
 int mainMenu();
 void outputDetails(const map<string, tuple<int, string, string>>& );
+void increaseFriendship(map<string, tuple<int, string, string>>& );
+void descreaseFriendship(map<string, tuple<int, string, string>>& );
+void searchVillager(map<string, tuple<int, string, string>>& );
 
 int main() {
     map<string, tuple<int, string, string>> villagerData{
@@ -15,18 +18,19 @@ int main() {
 
     int menu = mainMenu();
     while(menu != 4){
+        if(menu == 1){
+            increaseFriendship(villagerData);
+        }
+        else if(menu == 2){
+            descreaseFriendship(villagerData);
+        }
+        else if(menu == 3){
+            searchVillager(villagerData);
+        }
         outputDetails(villagerData);
         menu = mainMenu();
     }
-    /*
-    // Increase each villager's friendship level by 1
-    for ( auto& [name,list] : villagerData){
-        get<0>(list) += 1;
-    }
-    // Print the updated map
-    for (const auto& [name,list] : villagerData)
-        cout << name << " has a friendship level of " << get<0>(list) << endl;
-    */
+
     return 0;
 }
 
@@ -49,5 +53,28 @@ void outputDetails(const map<string, tuple<int, string, string>>& data){
        cout << name << "[" << get<0>(list) << ", " << get<1>(list) << ", " << get<2>(list) << "]" << endl;
     }
     cout << endl;
+
+}
+
+void increaseFriendship(map<string, tuple<int, string, string>>& data){
+    for ( auto& [name,list] : data){
+        if(get<0>(list) < 10){
+            get<0>(list) += 1;
+        }
+    }
+
+}
+
+void descreaseFriendship(map<string, tuple<int, string, string>>& data){
+    for ( auto& [name,list] : data){
+        if(get<0>(list) > 0){
+            get<0>(list) -= 1;
+        }
+    }
+
+}
+
+void searchVillager(map<string, tuple<int, string, string>>& data){
+    
 
 }
