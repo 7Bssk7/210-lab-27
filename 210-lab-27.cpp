@@ -4,10 +4,10 @@
 using namespace std;
 
 int main() {
-    map<string, int> villagerData{
-        {"Alice", 5},
-        {"Bob", 7},
-        {"Cindy", 9}
+    map<string, tuple<int, string, string>> villagerData{
+        {"Drago",make_tuple(5,"Alligator", "Snap to It!")},
+        {"Kyle",make_tuple(10,"Wolf", "Hubba hubba!")},
+        {"Raymond",make_tuple(8,"Cat", "Nice fit")}
     };
 
     // Increase each villager's friendship level by 1
