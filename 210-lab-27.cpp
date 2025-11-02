@@ -11,14 +11,12 @@ int main() {
     };
 
     // Increase each villager's friendship level by 1
-    for_each(villagerData.begin(), villagerData.end(),
-                  [](pair<const string, int>& villager) {
-                      villager.second += 1; // You can modify the value part of the pair
-                  });
-
+    for ( auto& [name,list] : villagerData){
+        get<0>(list) += 1;
+    }
     // Print the updated map
-    for (const auto& [name, level] : villagerData)
-        cout << name << " has a friendship level of " << level << endl;
+    for (const auto& [name,list] : villagerData)
+        cout << name << " has a friendship level of " << get<0>(list) << endl;
 
     return 0;
 }
