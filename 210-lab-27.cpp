@@ -6,6 +6,8 @@ using namespace std;
 
 int mainMenu();
 void outputDetails(const map<string, tuple<int, string, string>>& );
+void addVillager(map<string, tuple<int, string, string>>& );
+void deleteVillager(map<string, tuple<int, string, string>>& );
 void increaseFriendship(map<string, tuple<int, string, string>>& );
 void descreaseFriendship(map<string, tuple<int, string, string>>& );
 void searchVillager(map<string, tuple<int, string, string>>& );
@@ -19,14 +21,20 @@ int main() {
 
     outputDetails(villagerData);
     int menu = mainMenu();
-    while(menu != 4){
+    while(menu != 6){
         if(menu == 1){
-            increaseFriendship(villagerData);
+            addVillager(villagerData);
         }
         else if(menu == 2){
-            descreaseFriendship(villagerData);
+            deleteVillager(villagerData);
         }
         else if(menu == 3){
+            increaseFriendship(villagerData);
+        }
+        else if(menu == 4){
+            descreaseFriendship(villagerData);
+        }
+        else if(menu == 5){
             searchVillager(villagerData);
         }
         outputDetails(villagerData);
@@ -38,10 +46,12 @@ int main() {
 
 int mainMenu(){
     int choice;
-    cout << "1. Increase Friendship" << endl;
-    cout << "2. Decrease Friendship" << endl;
-    cout << "3. Search for Villager" << endl;
-    cout << "4. Exit" << endl;
+    cout << "1. Add Villager" << endl;
+    cout << "2. Delete Villager" << endl;
+    cout << "3. Increase Friendship" << endl;
+    cout << "4. Decrease Friendship" << endl;
+    cout << "5. Search for Villager" << endl;
+    cout << "6. Exit" << endl;
     cout << "Choice -> ";
     cin >> choice;
     cout << endl;
