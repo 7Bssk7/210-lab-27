@@ -6,6 +6,9 @@
 #include <algorithm>
 using namespace std;
 
+// Constant
+const int MAX_F = 10, MIN_F = 0;
+
 // Function prototypes
 int mainMenu();
 void outputDetails(const map<string, tuple<int, string, string>>& );
@@ -70,6 +73,10 @@ int mainMenu(){
     return choice;
 
 }
+
+// outputDetails() prints all villager data
+// arguments: const reference to villager map
+// returns: none
 void outputDetails(const map<string, tuple<int, string, string>>& data){
     cout << "Villager details:" << endl;
     for (const auto& [name,list] : data){
@@ -79,6 +86,9 @@ void outputDetails(const map<string, tuple<int, string, string>>& data){
 
 }
 
+// addVillager() adds a new villager to the map
+// arguments: reference to villager map
+// returns: none
 void addVillager(map<string, tuple<int, string, string>>& data){
     string name, s, c;
     int f;
@@ -99,6 +109,9 @@ void addVillager(map<string, tuple<int, string, string>>& data){
 
 }
 
+// deleteVillager() removes a villager by name
+// arguments: reference to villager map
+// returns: none
 void deleteVillager(map<string, tuple<int, string, string>>& data){
     string villager;
     cout << "What is the name of the villager you would like to remove?"<< endl;
@@ -116,24 +129,33 @@ void deleteVillager(map<string, tuple<int, string, string>>& data){
 
 }
 
+// increaseFriendship() adds 1 to each villager's friendship level (max 10)
+// arguments: reference to villager map
+// returns: none
 void increaseFriendship(map<string, tuple<int, string, string>>& data){
     for ( auto& [name,list] : data){
-        if(get<0>(list) < 10){
+        if(get<0>(list) < MAX_F){
             get<0>(list) += 1;
         }
     }
 
 }
 
+// decreaseFriendship() subtracts 1 from each villager's friendship level (min 0)
+// arguments: reference to villager map
+// returns: none
 void descreaseFriendship(map<string, tuple<int, string, string>>& data){
     for ( auto& [name,list] : data){
-        if(get<0>(list) > 0){
+        if(get<0>(list) > MIN_F){
             get<0>(list) -= 1;
         }
     }
 
 }
 
+// searchVillager() finds and prints a villager's details
+// arguments: reference to villager map
+// returns: none
 void searchVillager(map<string, tuple<int, string, string>>& data){
     string villager;
     cout << "What is the name of the villager you are trying to find?"<< endl;
