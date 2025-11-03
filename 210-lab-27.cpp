@@ -78,10 +78,13 @@ void addVillager(map<string, tuple<int, string, string>>& data){
     cout << "Species: ";
     cin >> s;
     cout << "Catchphrase: ";
+    cin.ignore();
     getline(cin, c);
 
-    data[]
+    data[name] = {f, s, c};
     
+    cout << name << " added" << endl;
+    cout << endl;
 
 }
 
