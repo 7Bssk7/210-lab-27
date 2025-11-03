@@ -52,7 +52,7 @@ int mainMenu(){
     cout << "4. Decrease Friendship" << endl;
     cout << "5. Search for Villager" << endl;
     cout << "6. Exit" << endl;
-    cout << "Choice -> ";
+    cout << "Enter choice -> ";
     cin >> choice;
     cout << endl;
 
@@ -65,6 +65,27 @@ void outputDetails(const map<string, tuple<int, string, string>>& data){
        cout << name << "[" << get<0>(list) << ", " << get<1>(list) << ", " << get<2>(list) << "]" << endl;
     }
     cout << endl;
+
+}
+
+void addVillager(map<string, tuple<int, string, string>>& data){
+    string name, s, c;
+    int f;
+    cout << "Villager name: ";
+    cin >> name;
+    cout << "Friendship level: ";
+    cin >> f;
+    cout << "Species: ";
+    cin >> s;
+    cout << "Catchphrase: ";
+    getline(cin, c);
+
+    data[]
+    
+
+}
+
+void deleteVillager(map<string, tuple<int, string, string>>& data){
 
 }
 
