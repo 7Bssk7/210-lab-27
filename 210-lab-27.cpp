@@ -89,6 +89,19 @@ void addVillager(map<string, tuple<int, string, string>>& data){
 }
 
 void deleteVillager(map<string, tuple<int, string, string>>& data){
+    string villager;
+    cout << "What is the name of the villager you would like to remove?"<< endl;
+    cin >> villager;
+    auto it = data.find(villager);
+    if(it != data.end()){
+        data.erase(it);
+        cout << villager << " removed" << endl;
+    }
+    else{
+        cout << villager << " is not on the list" << endl;
+    }
+
+    cout << endl;
 
 }
 
