@@ -1,9 +1,12 @@
+// COMSC-210 | Lab 27 | Arkhip Finski
+// IDE used: Visual Studio
 #include <iostream>
 #include <map>
 #include <string>
 #include <algorithm>
 using namespace std;
 
+// Function prototypes
 int mainMenu();
 void outputDetails(const map<string, tuple<int, string, string>>& );
 void addVillager(map<string, tuple<int, string, string>>& );
@@ -13,6 +16,7 @@ void descreaseFriendship(map<string, tuple<int, string, string>>& );
 void searchVillager(map<string, tuple<int, string, string>>& );
 
 int main() {
+    // Initial villager data
     map<string, tuple<int, string, string>> villagerData{
         {"Drago",make_tuple(5,"Alligator", "Snap to It!")},
         {"Kyle",make_tuple(10,"Wolf", "Hubba hubba!")},
@@ -21,7 +25,7 @@ int main() {
 
     outputDetails(villagerData);
     int menu = mainMenu();
-    while(menu != 6){
+    while(menu != 6){ //menu loop 
         if(menu == 1){
             addVillager(villagerData);
         }
@@ -44,6 +48,9 @@ int main() {
     return 0;
 }
 
+// mainMenu() displays the menu and returns user's choice
+// arguments: none
+// returns: int representing menu selection
 int mainMenu(){
     int choice;
     cout << "1. Add Villager" << endl;
@@ -54,6 +61,10 @@ int mainMenu(){
     cout << "6. Exit" << endl;
     cout << "Enter choice -> ";
     cin >> choice;
+    while(choice < 1 || choice > 6){
+        cout << "Invalid input, please enter your choice again(1-6):";
+        cin >> choice;
+    }
     cout << endl;
 
     return choice;
@@ -136,7 +147,7 @@ void searchVillager(map<string, tuple<int, string, string>>& data){
         cout << "Catchphrase: " << get<2>(it->second) << endl;
     }
     else{
-        cout << villager << " was not founnd" << endl;
+        cout << villager << " was not found" << endl;
     }
 
     cout << endl;
